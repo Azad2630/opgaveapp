@@ -22,18 +22,18 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    // --- DATA LISTER ---
+    // DATA LISTER
     private List<Task> taskList = new ArrayList<>();
     private List<Habit> habitList = new ArrayList<>();
     private List<Transaction> transactionList = new ArrayList<>();
     private int currentBalance = 0;
 
-    // --- UI Elementer ---
+    // UI Elementer
     private LinearLayout layoutTasks, layoutHabits, layoutMoney;
     private LinearLayout containerActiveTasks, containerDoneTasks, containerHabits, containerHistory;
     private TextView tvBalance;
 
-    // --- Gemme Værktøjer ---
+    // Gemme Værktøjer
     private SharedPreferences sharedPreferences;
     private Gson gson = new Gson();
 
@@ -68,14 +68,14 @@ public class MainActivity extends AppCompatActivity {
         refreshAllUI();
     }
 
-    // --- NAVIGATION ---
+    // NAVIGATION
     private void showTab(int tabIndex) {
         layoutTasks.setVisibility(tabIndex == 1 ? View.VISIBLE : View.GONE);
         layoutHabits.setVisibility(tabIndex == 2 ? View.VISIBLE : View.GONE);
         layoutMoney.setVisibility(tabIndex == 3 ? View.VISIBLE : View.GONE);
     }
 
-    // --- KNAPPER LOGIK ---
+    // KNAPPER LOGIK
     private void setupButtons() {
         // A) Tilføj Opgave
         EditText etTaskInput = findViewById(R.id.etTaskInput);
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // --- UI OPDATERING ---
+    // UI OPDATERING
     private void refreshAllUI() {
         refreshTasksUI();
         refreshHabitsUI();
@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
             LinearLayout row = new LinearLayout(this);
             row.setOrientation(LinearLayout.VERTICAL);
             row.setPadding(20, 20, 20, 20);
-            row.setBackgroundColor(Color.parseColor("#F5F5F5")); // Let grå
+            row.setBackgroundColor(Color.parseColor("#F5F5F5")); // grå
 
             LinearLayout.LayoutParams rowParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -266,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
         refreshMoneyUI();
     }
 
-    // --- DATA GEM/HENT ---
+    // DATA GEM/HENT
     private void saveData() {
         sharedPreferences = getSharedPreferences("OpgaveAppDB", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -297,13 +297,13 @@ public class MainActivity extends AppCompatActivity {
         if (transJson != null) transactionList = gson.fromJson(transJson, transListType);
     }
 
-    // --- DATAMODELLER ---
+    // DATAMODELLER
 
-    // Opgave model med dato
+    // Opgave model
     private static class Task {
         String title;
         boolean isDone;
-        String creationDate; // Dato felt tilføjet
+        String creationDate; // Dato
 
         Task(String title) {
             this.title = title;
@@ -312,12 +312,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Vane model med startdato
+    // Vane model
     private static class Habit {
         String name;
         int streak;
         String lastDoneDate;
-        String startDate; // Dato felt tilføjet
+        String startDate; // Dato
 
         Habit(String name) {
             this.name = name;
