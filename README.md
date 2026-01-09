@@ -1,6 +1,6 @@
 # App-beskrivelse
 
-OpgaveApp er en Android-app, der samler opgaver, vaner og økonomi i én løsning.
+OpgaveApp er en Android-app, der samler opgaver, vaner og økonomi i en løsning.
 Formålet er at hjælpe brugeren med at være mere produktiv og motiveret ved at belønne færdige opgaver og daglige vaner med virtuelle penge. Appen giver samtidig overblik over saldo og historik over køb og belønninger.
 
 # Feature-liste
